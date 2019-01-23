@@ -28,7 +28,7 @@ tput setaf 2; echo "Script started."; tput sgr0
 # Installs required packages per OS
 if [ "$(. /etc/os-release ; echo $ID)" == "ubuntu" ] && [ "$(echo $(. /etc/os-release ; echo $VERSION_ID)|cut -c -2)" -ge 18 ]
 then
-	sudo apt -y install libncurses5 libsdl-ttf2.0-0 libssl1.0.0 ecm unzip
+	sudo apt install libncurses5 libsdl-ttf2.0-0 libssl1.0.0 ecm unzip -y
 	wget http://archive.ubuntu.com/ubuntu/pool/main/c/curl3/libcurl3_7.58.0-2ubuntu2_amd64.deb -O /tmp/libcurl3_7.58.0-2ubuntu2_amd64.deb
 	sudo mkdir /tmp/libcurl3
 	sudo dpkg-deb -x /tmp/libcurl3_7.58.0-2ubuntu2_amd64.deb /tmp/libcurl3
@@ -36,7 +36,7 @@ then
 	sudo rm -rf /tmp/libcurl3
 	rm -rf /tmp/libcurl3_7.58.0-2ubuntu2_amd64.deb
 else
-	sudo apt -y install libcurl3 libsdl-ttf2.0-0 libssl1.0.0 ecm unzip
+	sudo apt install libcurl3 libsdl-ttf2.0-0 libssl1.0.0 ecm unzip -y
 fi
 
 # Back-up function
